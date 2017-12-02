@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+dist: trusty
+
+language: node_js
+
+node_js: '8'
+
+cache: yarn
+
+script:
+  - docker build -t $DOCKER_USERNAME/nestjs-seed .
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push $DOCKER_USERNAME/nestjs-seed

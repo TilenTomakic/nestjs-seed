@@ -1,0 +1,54 @@
+{
+  "name": "nest-typescript-starter",
+  "version": "1.0.0",
+  "description": "Nest TypeScript starter repository",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon",
+    "prestart:prod": "tsc",
+    "start:prod": "node dist/server.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^4.4.0",
+    "@nestjs/core": "^4.4.0",
+    "@nestjs/microservices": "^4.4.0",
+    "@nestjs/swagger": "^1.1.2",
+    "@nestjs/testing": "^4.4.0",
+    "@nestjs/websockets": "^4.4.0",
+    "@types/winston": "^2.3.7",
+    "consul": "^0.30.0",
+    "mongoose": "^4.13.5",
+    "redis": "^2.7.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.0",
+    "typescript": "^2.5.2",
+    "winston": "^2.4.0",
+    "winston-logstash": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/consul": "^0.23.32",
+    "@types/jest": "^21.1.8",
+    "@types/mongoose": "^4.7.28",
+    "@types/node": "^8.0.28",
+    "@types/supertest": "^2.0.4",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0",
+    "ts-jest": "^21.2.3",
+    "ts-node": "^3.3.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  }
+}
