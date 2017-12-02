@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/NestJsPlayground/api-seed.svg?branch=master)](https://travis-ci.org/NestJsPlayground/api-seed)
+
 # NestJs seed for kubernetes
 
 ## Description

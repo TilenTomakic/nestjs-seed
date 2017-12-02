@@ -5,13 +5,11 @@ import { HealthModule } from '../../src/modules/health/health.module';
 
 describe('Health', () => {
   const server = express();
-  const catsService = { findAll: () => ['test'] };
 
   beforeAll(async () => {
     const module = await Test.createTestingModule({
       modules: [HealthModule],
     })
-      // .overrideComponent(CatsService).useValue(catsService)
       .compile();
 
     const app = module.createNestApplication(server);
@@ -22,8 +20,6 @@ describe('Health', () => {
     return request(server)
       .get('/health')
       .expect(200)
-      .expect({
-        data: catsService.findAll(),
-      });
+      .expect({ database: 1, api: 'OK' });
   });
 });
