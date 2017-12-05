@@ -42,6 +42,10 @@ $ npm run start
 
 Check kubernetes folder.
 
+## Todo
+
+- optimize .travis.yml
+
 ## Worth reading
 
 - [The Twelve-Factor App](https://12factor.net)

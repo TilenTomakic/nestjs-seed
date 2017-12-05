@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-customers
+  name: mongo
+  labels:
+    name: mongo
 spec:
-  type: ClusterIP
   ports:
-  - port: 5432
-    protocol: TCP
-    targetPort: 5432
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
   selector:
-    app: postgres-customers
+    role: mongo

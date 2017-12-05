@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo
-  labels:
-    name: mongo
+  name: apiseed
 spec:
+  type: NodePort
   ports:
-  - port: 27017
-    targetPort: 27017
-  clusterIP: None
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
   selector:
-    role: mongo
+    app: apiseed
