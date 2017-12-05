@@ -1,12 +1,11 @@
 [![Build Status](https://travis-ci.org/TilenTomakic/nestjs-seed.svg?branch=master)](https://github.com/TilenTomakic/nestjs-seed)
 
-# NestJs seed for kubernetes
+# NestJs seed for kubernetes (work in progress)
 
 <div align="center">
   <img src="http://kamilmysliwiec.com/public/nest-logo.png" width="100">
   <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="50">
 </div>
-
 
 ## Description
 

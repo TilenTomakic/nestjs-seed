@@ -11,7 +11,7 @@ export class ConsulService {
   static consul = Consul();
 
   constructor() {
-    this.initWatch();
+    // this.initWatch(); TODO
   }
 
   initWatch() {
