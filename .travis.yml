@@ -1,17 +1,18 @@
-sudo: required
-
-services:
-  - docker
-
 dist: trusty
+sudo: required
 
 language: node_js
 
-node_js: '8'
+node_js:
+  - "8"
+
+services:
+  - docker
+  - mongodb
 
 cache: yarn
 
-script:
+install:
   - docker build -t $DOCKER_USERNAME/nestjs-seed .
 
 after_success:
