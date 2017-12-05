@@ -31,3 +31,7 @@ $ yarn install
 $ ./tools/startConsul.sh
 $ npm run start
 ```
+
+## Worth reading
+
+- [The Twelve-Factor App](https://12factor.net)

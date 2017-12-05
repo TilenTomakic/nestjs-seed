@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: apiseed-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apiseed
+    spec:
+      containers:
+      - image: tilen/nestjs-seed
+        name: apiseed
+        ports:
+        - containerPort: 3000
+          name: server
+          protocol: TCP
