@@ -8,7 +8,7 @@ export class ConsulService {
   watchMap = {};
   watchValues = {};
 
-  static consul = Consul();
+  static consul; // = Consul();
 
   constructor() {
     // this.initWatch(); TODO
