@@ -13,6 +13,8 @@ services:
 cache: yarn
 
 install:
+  - yarn install
+  - npm test
   - docker build -t $DOCKER_USERNAME/nestjs-seed .
 
 after_success:

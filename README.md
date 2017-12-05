@@ -1,6 +1,12 @@
-[![Build Status](https://travis-ci.org/NestJsPlayground/api-seed.svg?branch=master)](https://travis-ci.org/NestJsPlayground/api-seed)
+[![Build Status](https://travis-ci.org/TilenTomakic/nestjs-seed.svg?branch=master)](https://github.com/TilenTomakic/nestjs-seed)
 
 # NestJs seed for kubernetes
+
+<div align="center">
+  <img src="http://kamilmysliwiec.com/public/nest-logo.png" width="100">
+  <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="50">
+</div>
+
 
 ## Description
 
@@ -28,9 +34,14 @@ $ yarn install
 ## Start
 
 ```
-$ ./tools/startConsul.sh
+$ ./tools/consul.sh
+$ ./tools/mongo.sh
 $ npm run start
 ```
+
+## Deployment
+
+Check kubernetes folder.
 
 ## Worth reading
 
