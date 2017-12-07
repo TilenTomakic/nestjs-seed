@@ -13,9 +13,10 @@ npm-debug.log
 /quick-start
 
 # tests
-/test
 /coverage
-/.nyc_output
 
 # dist
 /dist
+
+# docker volumes
+/.volumes

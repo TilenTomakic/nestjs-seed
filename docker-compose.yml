@@ -3,10 +3,24 @@ services:
   mongo:
     image: mongo:3.0-wheezy
     ports:
-      - 5432:5432
+      - 4000:27017
+    volumes:
+      - ".volumes/mongo:/data/db:Z"
+  consul:
+    image: consul
+    ports:
+      - 8400:8400
+      - 8500:8500
+      - 8600:53/udp
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    volumes:
+      - ".volumes/consul:/consul/data:Z"
   apiseed:
-    image: tilen/nestjs-seed
+    build: .
+    image: apiseed
     ports:
       - 3000:3000
     depends_on:
       - mongo
+      - consul

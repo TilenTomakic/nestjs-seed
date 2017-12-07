@@ -30,17 +30,24 @@ $ yarn install
 > Note: you will need docker for running consul container.
 
 
-## Start
+## Start (for developing)
 
 ```
-$ ./tools/consul.sh
-$ ./tools/mongo.sh
+$ docker run -d --name=dev-consul -p 8400:8400 -p 8500:8500 -p 8600:53/udp -e CONSUL_BIND_INTERFACE=eth0 -v `pwd`/.volumes/consul:/consul/data:Z --rm -it consul
+$ docker run -d --name=dev-mongo -p 27017:27017 -v `pwd`/.volumes/mongo:/data/db:Z --rm -it mongo:3.0-wheezy
+
 $ npm run start
+```
+
+## Start
+
+```typescript
+$ docker-compose up
 ```
 
 ## Deployment
 
-Check kubernetes folder.
+Go to `kubernetes/` folder and use `kubectl apply -f` command for each yaml file.
 
 ## Todo
 
