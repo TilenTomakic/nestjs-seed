@@ -1,0 +1,21 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:3.4-jessie
+    ports:
+      - 47017:47017
+    command: mongod --port 47017
+    volumes:
+      - "./.volumes/mongo-dev:/data/db:Z"
+  consul:
+    image: consul
+    links:
+      - mongo
+    ports:
+      - 8400:8400
+      - 8500:8500
+      - 8600:53/udp
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    volumes:
+      - "./.volumes/consul-dev:/consul/data:Z"

@@ -2,21 +2,18 @@ version: "3"
 services:
   mongo:
     image: mongo:3.4-jessie
-    ports:
-      - 3001:27017
+    command: mongod --port 47017
     tmpfs: /data/db
   consul:
     image: consul
-    ports:
-      - 8400:8400
-      - 8500:8500
-      - 8600:53/udp
+    command: consul -dev
     environment:
       - CONSUL_BIND_INTERFACE=eth0
-    tmpfs: /consul/data
   app-test:
     build: .
     image: app
+    environment:
+      - NODE_ENV=test
     command: npm run test
     depends_on:
       - mongo

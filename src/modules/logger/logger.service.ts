@@ -1,6 +1,6 @@
 import { Component } from '@nestjs/common';
 import * as winston from 'winston';
-
+import { environment } from '../../environment';
 
 @Component()
 export class LoggerService {
@@ -9,26 +9,11 @@ export class LoggerService {
     // Requiring `winston-logstash` will expose
     // `winston.transports.Logstash`
     require('winston-logstash');
-    winston.add((winston.transports as any).Logstash, {
-      port: 5010,
-      node_name: 'nest api',
-      host: '35.198.92.155'
-    });
 
-    // this.client = new LogstashClient({
-    //   type: 'tcp',
-    //   host: '35.198.92.155',
-    //   port: 5010
-    // });
+    if (environment.logstash) {
+      winston.add((winston.transports as any).Logstash, environment.logstash);
+    }
   }
-
-  // log(data: any) {
-  //   this.client.send({
-  //     '@timestamp': new Date(),
-  //     'level': 'log',
-  //     ...data
-  //   }, console.error);
-  // }
 }
 
 

@@ -24,7 +24,7 @@ async function bootstrap() {
   process.on('SIGTERM', () => {
     shutdown()
       .then(() => process.exit(0))
-      .catch((err) => process.exit(-1))
+      .catch((err) => process.exit(1))
   });
 
   return app;

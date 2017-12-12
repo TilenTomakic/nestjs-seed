@@ -11,6 +11,7 @@
 
 Seed for [Nest](https://github.com/nestjs/nest) framework with mongodb, swagger and consul (for auto discovery). With config ready for travis build, docker push and kubernetes deployment.
 
+> Note: you probably don't need Consul if you are using Kubernetes
 
 ## Features
 
@@ -27,22 +28,20 @@ Seed for [Nest](https://github.com/nestjs/nest) framework with mongodb, swagger 
 ```bash
 $ yarn install
 ```
-> Note: you will need docker for running consul container.
+> Note: you will need docker & docker-compose.
 
 
 ## Start (for developing)
 
 ```
-$ docker run -d --name=dev-consul -p 8400:8400 -p 8500:8500 -p 8600:53/udp -e CONSUL_BIND_INTERFACE=eth0 -v `pwd`/.volumes/consul:/consul/data:Z --rm -it consul
-$ docker run -d --name=dev-mongo -p 27017:27017 -v `pwd`/.volumes/mongo:/data/db:Z --rm -it mongo:3.0-wheezy
-
+$ ./dev.ts
 $ npm run start
 ```
 
-## Start
+## Start (prod mode)
 
 ```typescript
-$ docker-compose up
+$ docker-compose build && docker-compose up
 ```
 
 ## Deployment

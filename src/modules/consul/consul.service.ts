@@ -1,6 +1,7 @@
 import { Component } from '@nestjs/common';
 import * as Consul from 'consul';
 import { info, error } from 'winston';
+import { environment } from '../../environment';
 
 @Component()
 export class ConsulService {
@@ -8,15 +9,15 @@ export class ConsulService {
   watchMap = {};
   watchValues = {};
 
-  static consul; // = Consul();
+  static consul = Consul(environment.consul);
 
   constructor() {
-    // this.initWatch(); TODO
+    this.initWatch();
   }
 
   initWatch() {
     try {
-      this.watch('core/enabled');
+      this.watch('core/maintenance');
     } catch (e) {
       error('There was problem with consul', e);
     }
