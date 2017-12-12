@@ -9,10 +9,10 @@ export class ConsulService {
   watchMap = {};
   watchValues = {};
 
-  static consul = Consul(environment.consul);
+  static consul = void 0; //Consul(environment.consul);
 
   constructor() {
-    this.initWatch();
+    // this.initWatch();
   }
 
   initWatch() {
