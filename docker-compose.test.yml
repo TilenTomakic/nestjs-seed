@@ -16,7 +16,7 @@ services:
     tmpfs: /consul/data
   app-test:
     build: .
-    image: apiseed
+    image: app
     command: npm run test
     depends_on:
       - mongo
