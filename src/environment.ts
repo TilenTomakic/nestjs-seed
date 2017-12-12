@@ -14,7 +14,7 @@ export const environment = {
   },
 
   // unless in local development mode we will use Kubernetes service discovery and env to inject
-  mongo: `mongodb://${ process.env.MONGO || (envType === 'dev' ? 'localhost:47017' : 'mongo:47017') }/${ this.appName }`
+  mongo: process.env.MONGO_HOST || `mongodb://${ process.env.MONGO || (envType === 'dev' ? 'localhost:47017' : 'mongo:47017') }/${ this.appName }`
 };
 
 console.log(environment);

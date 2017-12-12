@@ -18,8 +18,11 @@ spec:
           name: server
           protocol: TCP
         env:
-          - name: MONGO
-            value: "mongo:27017"
+          - name: MONGO_HOST
+            valueFrom:
+              secretKeyRef:
+                name: mongo-db-secret-watch
+                key: connstring.txt
           - name: NODE_ENV
             value: "prod"
           - name: LOGSTASH_HOST
