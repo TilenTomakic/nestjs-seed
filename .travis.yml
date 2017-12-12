@@ -1,5 +1,6 @@
-dist: trusty
 sudo: required
+
+language: node_js
 
 services:
   - docker
@@ -9,8 +10,11 @@ env:
 
 install:
   - docker-compose -f docker-compose.test.yml build
+
+script:
   - docker-compose -f docker-compose.test.yml up --exit-code-from app-test
-  - docker build -t $DOCKER_USERNAME/nestjs-seed .
+
 after_success:
+  - docker build -t $DOCKER_USERNAME/nestjs-seed .
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push $DOCKER_USERNAME/nestjs-seed
