@@ -19,7 +19,7 @@ describe('Health', () => {
   it(`/GET health`, () => {
     return request(server)
       .get('/health')
-      .expect(400)
+      .expect(200)
       .expect({ database: 1, api: 'OK' });
   });
 });
