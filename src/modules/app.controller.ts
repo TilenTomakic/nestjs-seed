@@ -27,6 +27,7 @@ export class AppController {
 	  let jobsFound;
 	  try {
       jobsFound = await rp({uri: 'http://apijob:3000/job', json: true});
+      jobsFound = jobsFound.length;
     } catch (e) {
       jobsFound = e.message;
     }
