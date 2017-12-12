@@ -11,7 +11,7 @@ cache: yarn
 install:
   - docker-compose -f docker-compose.test.yml build
   - docker-compose -f docker-compose.test.yml up --abort-on-container-exit
-  - docker wait apiseed_app-test_1
+  - docker wait app-test_1
   - docker build -t $DOCKER_USERNAME/nestjs-seed .
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
