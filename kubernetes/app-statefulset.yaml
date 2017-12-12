@@ -18,6 +18,12 @@ spec:
         - containerPort: 3000
           name: server
           protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
           - name: MONGO_HOST
             valueFrom:
