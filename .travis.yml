@@ -1,14 +1,7 @@
-dist: trusty
 sudo: required
-
-language: node_js
-
-node_js:
-  - "8"
 
 services:
   - docker
-  - mongodb
 
 env:
   - NODE_ENV=qa
@@ -16,10 +9,10 @@ env:
 cache: yarn
 
 install:
-  - yarn install
-  - npm test
+  - docker-compose -f docker-compose.test.yml build
+  - docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+  - docker wait apiseed_testapp_1
   - docker build -t $DOCKER_USERNAME/nestjs-seed .
-
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push $DOCKER_USERNAME/nestjs-seed

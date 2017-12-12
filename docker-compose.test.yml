@@ -3,9 +3,8 @@ services:
   mongo:
     image: mongo:3.4-jessie
     ports:
-      - 4000:27017
-    volumes:
-      - ".volumes/mongo:/data/db:Z"
+      - 3001:27017
+    tmpfs: /data/db
   consul:
     image: consul
     ports:
@@ -14,13 +13,11 @@ services:
       - 8600:53/udp
     environment:
       - CONSUL_BIND_INTERFACE=eth0
-    volumes:
-      - ".volumes/consul:/consul/data:Z"
-  apiseed:
+    tmpfs: /consul/data
+  test:
     build: .
     image: apiseed
-    ports:
-      - 80:3000
+    command: npm run test
     depends_on:
       - mongo
       - consul
