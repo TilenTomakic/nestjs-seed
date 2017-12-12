@@ -16,7 +16,7 @@ services:
       - CONSUL_BIND_INTERFACE=eth0
     volumes:
       - ".volumes/consul:/consul/data:Z"
-  apiseed:
+  app:
     build: .
     image: apiseed
     ports:

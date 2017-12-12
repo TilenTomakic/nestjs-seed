@@ -14,7 +14,7 @@ services:
     environment:
       - CONSUL_BIND_INTERFACE=eth0
     tmpfs: /consul/data
-  test:
+  app-test:
     build: .
     image: apiseed
     command: npm run test
