@@ -13,6 +13,8 @@ export const environment = {
     host: process.env.LOGSTASH_HOST
   },
 
-  // unless in local development mode we will use Kubernetes service discovery
-  mongo: process.env.MONGO || `mongodb://${ envType === 'dev' ? 'localhost' : 'mongo' }:47017/${ this.appName }`
+  // unless in local development mode we will use Kubernetes service discovery and env to inject
+  mongo: `mongodb://${ process.env.MONGO || (envType === 'dev' ? 'localhost:47017' : 'mongo:47017') }/${ this.appName }`
 };
+
+console.log(environment);

@@ -1,0 +1,63 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: consul
+spec:
+  serviceName: consul
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: consul
+    spec:
+      terminationGracePeriodSeconds: 10
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: consul
+          image: "consul"
+          args:
+            - "agent"
+            - "-bind=0.0.0.0"
+            - "-bootstrap-expect=1"
+            - "-client=0.0.0.0"
+            - "-server"
+            - "-ui"
+          volumeMounts:
+            - name: data
+              mountPath: /consul/data
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - consul leave
+          ports:
+            - containerPort: 8500
+              name: ui-port
+            - containerPort: 8400
+              name: alt-port
+            - containerPort: 53
+              name: udp-port
+            - containerPort: 8443
+              name: https-port
+            - containerPort: 8080
+              name: http-port
+            - containerPort: 8301
+              name: serflan
+            - containerPort: 8302
+              name: serfwan
+            - containerPort: 8600
+              name: consuldns
+            - containerPort: 8300
+              name: server
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: apiseed-deployment
+  name: apiseed
 spec:
   replicas: 1
   template:
@@ -18,5 +18,9 @@ spec:
           name: server
           protocol: TCP
         env:
+          - name: MONGO
+            value: "mongo:27017"
+          - name: NODE_ENV
+            value: "prod"
           - name: LOGSTASH_HOST
             value: "log.tomakic.com"
