@@ -6,7 +6,6 @@ services:
     tmpfs: /data/db
   consul:
     image: consul
-    command: consul -dev
     environment:
       - CONSUL_BIND_INTERFACE=eth0
   app-test:
