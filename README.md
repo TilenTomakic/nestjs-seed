@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/TilenTomakic/nestjs-seed.svg?branch=master)](https://github.com/TilenTomakic/nestjs-seed)
 
-# NestJs seed for kubernetes (work in progress)
+# NestJs seed for kubernetes
+
+**I created this seed for my educational purposes. Some design decisions will not make sense as why I used consul if kubernetes is already providing service discovery...** So if you use this seed you will probably have to do some clean ups.
 
 <div align="center">
   <img src="http://kamilmysliwiec.com/public/nest-logo.png" width="100">
