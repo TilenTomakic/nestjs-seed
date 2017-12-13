@@ -54,6 +54,10 @@
   dependencies:
     "@types/node" "*"
 
+"@types/chance@^0.7.35":
+  version "0.7.35"
+  resolved "https://registry.yarnpkg.com/@types/chance/-/chance-0.7.35.tgz#e76f3441b7763476c58eb7dc32f62da3d8ea547e"
+
 "@types/consul@^0.23.32":
   version "0.23.32"
   resolved "https://registry.yarnpkg.com/@types/consul/-/consul-0.23.32.tgz#1439b41c69f3e09e4f73e0b5df8338b8753cd12f"
@@ -704,6 +708,10 @@ chalk@^2.0.0, chalk@^2.0.1:
     ansi-styles "^3.1.0"
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
+
+chance@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/chance/-/chance-1.0.12.tgz#6764c9cb7b4f34856fb780d07f0e17a6601c6c08"
 
 chokidar@^1.6.0, chokidar@^1.7.0:
   version "1.7.0"

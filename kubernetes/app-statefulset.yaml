@@ -32,6 +32,6 @@ spec:
           - name: NODE_ENV
             value: "prod"
           - name: VERSION
-            value: "4"
+            value: "5"
           - name: LOGSTASH_HOST
             value: "log.tomakic.com"

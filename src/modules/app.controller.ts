@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import * as rp from 'request-promise-native';
+import { resCustomers } from './ts.customers.mock';
 
 
 export interface ReportInfo {
@@ -36,7 +37,7 @@ export class AppController {
       jobsFound = e.message;
     }
 
-    return { doc: '/api', jobsFound };
+    return { doc: '/api', jobsFound, resCustomers };
   }
 
   @Get('v1/demo/info')
