@@ -9,7 +9,7 @@ spec:
       labels:
         app: apiseed
         tier: frontend
-        cversion: "5"
+        cversion: "6"
     spec:
       containers:
       - image: tilen/nestjs-seed
