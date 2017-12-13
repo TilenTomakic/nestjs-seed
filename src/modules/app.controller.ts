@@ -15,7 +15,7 @@ const seminarReportInfo: ReportInfo = {
   'clani'        : ['tt5157'],
   'opis_projekta': 'Projekt implementira aplikacijo sestavljeno iz več mikrostoritev za zbiranje podatkov iz več virov med drugimi tudi twitter (mini spletni pajek). Za beleženje se uporablja custom ELK stack dosegljiv na http://log.tomakic.com/elk/app/kiban',
   'mikrostoritve': [
-    'http://35.198.168.200:3000/job', 'http://35.198.100.92:3000', 'http://35.198.176.199:3000/twitter', 'http://35.198.149.151:3000/web'],
+    'http://35.198.123.57:3000/job', 'http://35.198.182.182:3000', 'http://35.198.100.92:3000/twitter', 'http://35.198.149.151:3000/web'],
   'github'       : [
     'https://github.com/NestJsPlayground/JobMicroService', 'https://github.com/TilenTomakic/nestjs-seed', 'https://github.com/NestJsPlayground/TwitterMicroService', 'https://github.com/NestJsPlayground/WebMicroService'],
   'travis'       : [

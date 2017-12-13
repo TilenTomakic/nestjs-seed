@@ -9,7 +9,6 @@ spec:
       labels:
         app: apiseed
         tier: frontend
-        cversion: "8"
     spec:
       containers:
       - image: tilen/nestjs-seed
@@ -22,8 +21,8 @@ spec:
           httpGet:
             path: /health
             port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 10
         env:
           - name: MONGO_HOST
             valueFrom:
@@ -32,5 +31,7 @@ spec:
                 key: connstring.txt
           - name: NODE_ENV
             value: "prod"
+          - name: VERSION
+            value: "4"
           - name: LOGSTASH_HOST
             value: "log.tomakic.com"
